@@ -15,7 +15,7 @@ const Cards = ({ covidData: [confirmed, recovered, deaths] }) => {
 
   const info = [
     { confirmed: confirmed.value },
-    { death: deaths.value },
+    { deaths: deaths.value },
     { recovered: recovered.value },
   ];
 
@@ -26,7 +26,7 @@ const Cards = ({ covidData: [confirmed, recovered, deaths] }) => {
     },
     card: {
       color: theme.palette.dark,
-      backgroundColor: theme.palette.light,
+      backgroundColor: (theme.palette.secondary.light = "#eeeeee"),
       textAlign: "center",
     },
   }));

@@ -13,22 +13,22 @@ const Chart = () => {
     };
     fetchApi();
   }, []);
-  // console.log(dailyData);
+  console.log("daily data", dailyData);
   //Line Chart for global data
   const lineChart = () =>
     dailyData && (
       <Line
         data={{
-          labels: dailyData.map(({ date }) => date),
+          labels: dailyData.map(({ reportDate }) => reportDate),
           datasets: [
             {
-              data: dailyData.map(({ confirmed }) => confirmed),
+              data: dailyData.map(({ confirmed }) => confirmed.total),
               label: "infected",
               borderColor: "#3333ff",
               fill: true,
             },
             {
-              data: dailyData.map(({ deaths }) => deaths),
+              data: dailyData.map(({ deaths }) => deaths.total),
               label: "deaths",
               borderColor: "red",
               backgroundColor: "rgba(250,0,0,0.5)",
@@ -39,7 +39,6 @@ const Chart = () => {
       />
     );
 
-  // console.log("daily data => ", dailyData);
   return <div className={styles.container}>{lineChart()}</div>;
 };
 

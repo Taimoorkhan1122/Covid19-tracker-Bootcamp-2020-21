@@ -22,8 +22,8 @@ class App extends Component {
       data.length > 0 && (
         <div className={styles.container}>
           <Cards covidData={covidData} />
-          <Chart covidData={covidData} />
           <CountryPicker />
+          <Chart covidData={covidData} />
         </div>
       )
     );

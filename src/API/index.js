@@ -17,7 +17,6 @@ export const fetchDailyData = async () => {
   try {
     let variableURL = `${url}/daily`;
     const { data } = await axios.get(variableURL);
-    console.log(data);
     return data;
   } catch (error) {}
 };
