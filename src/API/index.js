@@ -19,10 +19,8 @@ export const fetchData = async () => {
         format: "json",
       },
     });
-    // console.log(data);
-    return data.map(({ confirmed, recovered, deaths }) => {
-      return { confirmed, recovered, deaths };
-    });
+    const info = data.map((serverData) => serverData);
+    return info;
   } catch (error) {}
 };
 

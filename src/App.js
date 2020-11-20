@@ -4,7 +4,7 @@ import { fetchData } from "./API";
 
 class App extends Component {
   state = {
-    data: {},
+    data: [],
     country: "",
   };
 
@@ -15,11 +15,11 @@ class App extends Component {
 
   render() {
     const { data, country } = this.state;
-    console.log("data => ", data);
+    const covidData = data[0];
     return (
       data.length > 0 && (
         <div className="container">
-          <Cards CovidData={data} />
+          <Cards covidData={covidData} />
           <Chart />
           <CountryPicker />
         </div>

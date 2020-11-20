@@ -1,0 +1,22 @@
+:root {
+    --border: 8px 
+}
+.confirmed {
+    border-bottom: var(--border) solid rgba(2, 81, 252,0.8);
+    text-transform: uppercase;
+}
+
+.deaths {
+    border-bottom: var(--border) solid rgba(252, 19, 2,0.8);
+    text-transform: uppercase;
+}
+
+.recovered {
+    border-bottom: var(--border) solid rgba(2, 252, 148,0.8);
+    text-transform: uppercase;
+}
+
+.details {
+    color: #919191;
+    margin-top: 10px !important;
+}
