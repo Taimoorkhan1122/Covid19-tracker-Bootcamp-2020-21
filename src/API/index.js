@@ -1,9 +1,33 @@
 import axios from "axios";
 
+const url = "https://covid19.mathdro.id/api";
+// fetch daily data
 export const fetchData = async () => {
-  const url = "https://covid-19-data.p.rapidapi.com/totals";
-  //covid-19-data.p.rapidapi.com/help/countries
+  try {
+    const { data } = await axios.get(url);
+    const { confirmed, deaths, recovered } = data;
+    // console.log(confirmed.value);
+
+    return [confirmed, deaths, recovered];
+  } catch (error) {}
+};
+
+// daily data
+export const fetchDailyData = async () => {
+  try {
+    let variableURL = `${url}/daily`;
+    const { data } = await axios.get(variableURL);
+    console.log(data);
+    return data;
+  } catch (error) {}
+};
+
+// Get countries data
+export const dailData = async () => {
+  const url = "https://covid-19-data.p.rapidapi.com/help/countries";
+
   const key = "b662097fcbmsha603613b817c347p163a48jsn7791597368ed";
+
   try {
     const { data } = await axios({
       method: "GET",
@@ -19,12 +43,13 @@ export const fetchData = async () => {
         format: "json",
       },
     });
-    const info = data.map((serverData) => serverData);
-    return info;
+    // console.log("daily data ==> ", dailyData);
+    const dailyData = data.map((serverData) => serverData);
+    return dailData;
   } catch (error) {}
 };
 
-// axios({
+//  axios({
 //   method: "GET",
 //   url: "https://covid-19-data.p.rapidapi.com/help/countries",
 //   headers: {

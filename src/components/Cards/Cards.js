@@ -10,9 +10,14 @@ import CountUp from "react-countup";
 
 import styles from "./Cards.module.css";
 
-const Cards = ({ covidData: { confirmed, recovered, deaths } }) => {
-  console.log("destructred ", confirmed);
-  const info = [{ confirmed }, { deaths }, { recovered }];
+const Cards = ({ covidData: [confirmed, recovered, deaths] }) => {
+  // console.log("destructred ", covidData);
+
+  const info = [
+    { confirmed: confirmed.value },
+    { death: deaths.value },
+    { recovered: recovered.value },
+  ];
 
   // MUI Styles
   const useStyles = makeStyles((theme) => ({
@@ -34,8 +39,8 @@ const Cards = ({ covidData: { confirmed, recovered, deaths } }) => {
       </Typography>
       <Grid container spacing={2}>
         {info.map((item, key) => {
-          const keys = Object.keys(item);
-          const values = Object.values(item);
+          const [keys] = Object.keys(item);
+          const [values] = Object.values(item);
 
           return (
             <Grid key={key} item xs={12} sm={4} md={4}>
