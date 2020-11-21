@@ -17,6 +17,8 @@ const Chart = () => {
   //Line Chart for global data
   const lineChart = () =>
     dailyData && (
+      //line chart accpets data prop which is an object which contains
+      //labels, datasets array of objects
       <Line
         data={{
           labels: dailyData.map(({ reportDate }) => reportDate),
