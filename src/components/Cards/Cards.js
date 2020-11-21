@@ -7,17 +7,12 @@ import {
 } from "@material-ui/core";
 import cx from "classnames";
 import CountUp from "react-countup";
+import Time from "./Time";
 
 import styles from "./Cards.module.css";
 
-const Cards = ({ covidData: [confirmed, recovered, deaths] }) => {
-  // console.log("destructred ", covidData);
-
-  const info = [
-    { confirmed: confirmed.value },
-    { deaths: deaths.value },
-    { recovered: recovered.value },
-  ];
+const Cards = ({ covidData: [confirmed, recovered, deaths, lastUpdate] }) => {
+  const info = [confirmed, deaths, recovered];
 
   // MUI Styles
   const useStyles = makeStyles((theme) => ({
@@ -56,6 +51,12 @@ const Cards = ({ covidData: [confirmed, recovered, deaths] }) => {
                     >
                       {values}
                     </CountUp>
+                  </Typography>
+                  <Typography>
+                    Last Update:{" "}
+                    <small>
+                      <Time time={lastUpdate} />
+                    </small>
                   </Typography>
                   <Typography
                     variant="body2"

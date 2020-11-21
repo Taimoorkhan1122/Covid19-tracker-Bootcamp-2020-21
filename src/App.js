@@ -6,24 +6,28 @@ import styles from "./App.module.css";
 class App extends Component {
   state = {
     data: [],
-    country: "",
+    Country: "",
   };
 
   async componentDidMount() {
     const newData = await fetchData();
-    this.setState({ ...this.state, data: newData });
+    this.setState({ data: newData });
   }
+  //handle country hanlder
+  handleCountryChange = async (country) => {
+    const countryData = await fetchData(country);
+    this.setState({ data: countryData, country: country });
+  };
 
   render() {
     const { data, country } = this.state;
-
-    const covidData = data;
+    // console.log(data);
     return (
       data.length > 0 && (
         <div className={styles.container}>
-          <Cards covidData={covidData} />
-          <CountryPicker />
-          <Chart covidData={covidData} />
+          <Cards covidData={data} />
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+          <Chart covidData={data} country={country} />
         </div>
       )
     );
