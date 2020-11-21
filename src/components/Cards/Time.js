@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import moment from "moment";
 
 const Time = ({ time }) => {
-  console.log(time);
   const timeString = moment(time).toDate().toDateString();
   return <span className="time">{timeString}</span>;
 };

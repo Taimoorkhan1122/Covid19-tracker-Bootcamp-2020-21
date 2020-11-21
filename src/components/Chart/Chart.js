@@ -43,7 +43,6 @@ const Chart = ({ covidData, country }) => {
     const [confirmed, deaths, recovered] = covidData.map((item) =>
       Object.values(item)
     );
-    console.log(covidData);
     return covidData ? (
       <Bar
         data={{
