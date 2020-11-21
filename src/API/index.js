@@ -6,6 +6,7 @@ export const fetchData = async (country) => {
   let changeableUrl = url;
   if (country) {
     changeableUrl = `${url}/countries/${country}`;
+    console.log(changeableUrl);
   }
 
   try {
